@@ -5,16 +5,20 @@
 ## a
 ##
 
-SRC     =   minshell.c
+SRC     =   minshell.c \
+			lib.c \
+			str.c
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	mysh
 
+CFLAGS = -g3
+
 all:    $(NAME)
 
 $(NAME):        $(OBJ)
-		gcc -lm -g3 -o $(NAME) $(OBJ)
+		gcc -lm $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
