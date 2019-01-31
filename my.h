@@ -27,4 +27,5 @@ void env(char **copy);
 void fct_fork(char *go, char ** str, char ** envp, int status);
 int my_strlen(char const * str);
 void my_putchar(char c);
+void to_cd(char ** str, char ** copy);
 #endif

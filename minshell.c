@@ -185,11 +185,26 @@ int minishell(int ac, char ** av, char ** const envp)
         return(0);
     if (my_str_compare(str[0], "env") == 1)
         env(copy);
+    else if(my_str_compare(str[0], "cd") == 1)
+        to_cd(str, copy);
     else 
         fct_fork(go, str, envp, status);
     free(str);
     free(summ);
     minishell(ac, av, envp);
+}
+
+void to_cd(char ** str, char ** copy)
+{
+    int i = 0;
+    char ** pwd;
+
+    chdir(str[1]);
+    while(my_str_compare_env(copy[i],"PWD=") != 1)
+        i++;
+    pwd = pars_path(copy[i]);
+    //printf("test => %s\n", pwd[1]);
+    //getcwd()
 }
 
 void fct_fork(char *go, char ** str, char **envp, int status) 
@@ -210,7 +225,8 @@ void fct_fork(char *go, char ** str, char **envp, int status)
     }
 }
 
-int exit_t(char **str, char *summ) {
+int exit_t(char **str, char *summ) 
+{
     if (my_str_compare(str[0], "exit") == 1) {
         free(str);
         free(summ);
