@@ -18,6 +18,7 @@ int minishell(int ac, char ** av, char ** const envp)
 
     my_putstr("$>");
     getline(&summ, &s, stdin);
+    summ = clean_str(summ);
     char ** str = my_str_to_word_array(summ);
     go = detect_comm(copy, str[0]);
     if (exit_t(str, summ) == 0)
@@ -35,6 +36,42 @@ int minishell(int ac, char ** av, char ** const envp)
     free(str);
     free(summ);
     minishell(ac, av, envp);
+}
+
+int my_strlenzs(char *str, int k)
+{
+    int i = k;
+    int j = 0;
+
+    while (str[i] != ' ' && str[i] != '\t' && str[i] != '\0'){
+        i = i + 1;
+        j++;
+    }
+    printf("%i\n", j);
+    return (j);
+}
+
+char * clean_str(char * summ)
+{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int z = 0;
+    char *dest = malloc(sizeof(char) * (my_strlen_env(summ)));
+
+    while(summ[i] != '\0') {
+        if (summ[i] != ' ' && summ[i] != '\t') {
+            dest[j] = summ[i];
+            z = 1;
+            j++;
+        }
+        else if (summ[i + 1] != ' ' && summ[i + 1] != '\t' && z == 1){
+            dest[j++] = ' ';
+        }
+        i++;
+    }
+    dest[i] = '\0';
+    return(dest);
 }
 
 void to_cd(char ** str, char ** copy)

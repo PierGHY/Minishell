@@ -14,11 +14,10 @@ int counter(char const *str)
 
     while (str[i] != '\0') {
         if (str[i] == ' ') {
-            j++;      
+            j++;    
         }
         i++;
     }
-
     return (j);
 }
 
