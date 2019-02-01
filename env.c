@@ -12,7 +12,7 @@ int counter_env(char ** envp) {
 
     while (envp[i] != NULL)
         i++;
-    return(i);
+    return (i);
 }
 
 char ** copy_env(char ** const envp)
@@ -31,8 +31,8 @@ char ** copy_env(char ** const envp)
         while (j < my_strlen_env(envp[i])) {
             str[i][j] = envp[i][j];
             j = j + 1;
-        } 
-        i ++;
+        }
+        i++;
         j = 0;
     }
     str[i] = NULL;
@@ -44,15 +44,15 @@ int my_str_compare_env(char * str, char *other)
     int i = 0;
     int j = 0;
 
-    while(i != 3 && i != 3) {
-        i ++;
+    while (i != 3 && i != 3) {
+        i++;
         if (str[i] == other[i])
             j++;
     }
     if (j == i)
-        return(1);
+        return (1);
     else
-        return(0);
+        return (0);
 }
 
 int my_strlenzp(char *str, int k)
@@ -75,7 +75,7 @@ char ** pars_path(char * path)
     int j = 0;
     int k = 0;
 
-    for(int i= 0; i <= count_path(path) + 1; i++)
+    for (int i = 0; i <= count_path(path) + 1; i++)
         str[i] = malloc(sizeof(char) * (my_strlenp(path)));
     while (i < count_path(path) + 1) {
         z = my_strlenzp(path, k);
@@ -84,7 +84,7 @@ char ** pars_path(char * path)
             j = j + 1;
             k = k + 1;
         }
-        i ++;
+        i++;
         j = 0;
     }
     str[i] = NULL;

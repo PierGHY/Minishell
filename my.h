@@ -34,5 +34,6 @@ int minishell(int ac, char **av , char ** const envp);
 char ** copy_env(char ** envp);
 char * detect_comm(char ** copy, char * summ);
 char * clean_str(char * summ);
+int ife(char **str, char* summ, char ** copy, char ** envp);
 
 #endif

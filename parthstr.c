@@ -14,7 +14,7 @@ int counter(char const *str)
 
     while (str[i] != '\0') {
         if (str[i] == ' ') {
-            j++;    
+            j++;
         }
         i++;
     }
@@ -26,15 +26,15 @@ int my_str_compare(char *str, char *other)
     int i = 0;
     int j = 0;
 
-    while(str[i] != '\0' && other[i] != '\0') {
+    while (str[i] != '\0' && other[i] != '\0') {
         i++;
         if (str[i] == other[i])
             j++;
     }
-    if(j == i)
-        return(1);
+    if (j == i)
+        return (1);
     else
-        return(0);
+        return (0);
 }
 
 int my_strlenz(char *str, int k)
@@ -49,7 +49,7 @@ int my_strlenz(char *str, int k)
     return (j);
 }
 
-char ** my_str_to_word_array( char * summ)
+char ** my_str_to_word_array(char * summ)
 {
     char **str = malloc(sizeof(char *) * ((counter(summ) + 1)));
     int i = 0;
@@ -57,7 +57,7 @@ char ** my_str_to_word_array( char * summ)
     int j = 0;
     int k = 0;
 
-    for(int i= 0; i <= counter(summ) + 1; i++)
+    for (int i= 0; i <= counter(summ) + 1; i++)
         str[i] = malloc(sizeof(char) * (my_strlen(summ)));
     while (i < counter(summ) + 1) {
         z = my_strlenz(summ, k);
@@ -66,18 +66,18 @@ char ** my_str_to_word_array( char * summ)
             j = j + 1;
             k = k + 1;
         }
-        i ++;
+        i++;
         j = 0;
     }
     str[i] = NULL;
     return (str);
 }
 
-void env(char** copy) 
+void env(char ** copy)
 {
     int i = 0;
-    
-    while(copy[i] != NULL){
+
+    while (copy[i] != NULL){
         my_putstr(copy[i]);
         my_putchar('\n');
         i++;

@@ -57,5 +57,5 @@ int my_strlen_env(char const *str)
 
     while (str[i] != '\0')
         i++;
-    return(i);
+    return (i);
 }

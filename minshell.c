@@ -13,7 +13,7 @@ char *way(char *file_name, char *f_word)
     int j = 0;
     char * test = malloc(sizeof(char) * (my_strlen_env(file_name)
     + my_strlen_env(f_word) + 2));
-    
+
     while (f_word[i] != '\0') {
         test[i] = f_word[i];
         i = i + 1;
@@ -30,36 +30,36 @@ char *way(char *file_name, char *f_word)
     return (test);
 }
 
-char * detect_comm(char ** copy, char * summ) 
+char * detect_comm(char ** copy, char * summ)
 {
     int i = 0;
     int z = 0;
     char **path;
     char *test;
     int p = 1;
-    
-    while(my_str_compare_env(copy[i],"PATH") != 1)
+
+    while (my_str_compare_env(copy[i], "PATH") != 1)
         i++;
     path = pars_path(copy[i]);
-    while(path[p] != NULL) {
+    while (path[p] != NULL) {
         if (access(way(summ, path[p]), X_OK) == 0)
             break;
         p++;
     }
     if (path[p] != NULL) {
         test = way(summ, path[p + 1]);
-        return(test);
+        return (test);
     }
     else
-        return(summ);
+        return (summ);
 }
 
-int count_path(char *str) 
+int count_path(char *str)
 {
     int i = 0;
     int j = 0;
 
-    while(str[i] != '\0') {
+    while (str[i] != '\0') {
         if (str[i] == ':' || str[i] == '=')
             j++;
         i++;
