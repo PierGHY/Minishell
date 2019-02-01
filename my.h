@@ -28,4 +28,10 @@ void fct_fork(char *go, char ** str, char ** envp, int status);
 int my_strlen(char const * str);
 void my_putchar(char c);
 void to_cd(char ** str, char ** copy);
+int my_str_compare_env(char * str, char *other);
+char ** pars_path(char * str);
+int minishell(int ac, char **av , char ** const envp);
+char ** copy_env(char ** envp);
+char * detect_comm(char ** copy, char * summ);
+
 #endif

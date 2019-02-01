@@ -52,7 +52,7 @@ int my_strlenz(char *str, int k)
 
 char ** my_str_to_word_array( char * summ)
 {
-    char **str = malloc(sizeof(char *) * ((counter(summ + 1))));
+    char **str = malloc(sizeof(char *) * ((counter(summ) + 1)));
     int i = 0;
     int z = 0;
     int j = 0;
