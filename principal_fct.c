@@ -64,7 +64,7 @@ void to_cd(char ** str, char ** copy)
 void fct_fork(char *go, char ** str, char **envp, int status)
 {
     int id;
-    if (str[0][0] != '/' && str[0][0] != '.')
+    if (str[0][0] != '/' || str[0][0] != '.')
         str[0] = go;
     id = fork();
     if (id == 0 ) {
