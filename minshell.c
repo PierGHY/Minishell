@@ -76,7 +76,10 @@ int my_strlenp(char const *str)
     return (i);
 }
 
-void main(int ac, char ** av, char ** const envp)
+int main(int ac, char ** av, char ** const envp)
 {
-    minishell(ac, av, envp);
+    if (envp[0] != NULL)
+        minishell(ac, av, envp);
+    else
+        return (84);
 }
