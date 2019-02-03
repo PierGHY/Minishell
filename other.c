@@ -21,11 +21,13 @@ char * clean_str(char * summ)
             z = 1;
             j++;
         }
-        else if (summ[i + 1] != ' ' && summ[i + 1] != '\t' && z == 1){
+        else if (summ[i + 1] != ' ' && summ[i + 1] != '\t'
+        && summ[i + 1] != '\n' && z == 1){
             dest[j++] = ' ';
         }
         i++;
     }
-    dest[i] = '\0';
+    my_putchar(dest[j]);
+    dest[j] = '\0';
     return (dest);
 }
