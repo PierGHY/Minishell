@@ -55,7 +55,8 @@ void to_cd(char ** str, char ** copy)
     char *path;
     size_t t;
 
-    chdir(str[1]);
+    if (chdir(str[1]) == -1)
+        exit(0);
     while (my_str_compare_env(copy[i], "PWD=") != 1)
         i++;
     pwd = pars_path(copy[i]);
