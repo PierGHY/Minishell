@@ -27,7 +27,6 @@ char * clean_str(char * summ)
         }
         i++;
     }
-    my_putchar(dest[j]);
     dest[j] = '\0';
     return (dest);
 }
