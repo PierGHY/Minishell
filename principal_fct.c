@@ -17,7 +17,8 @@ int minishell(int ac, char ** av, char ** const envp)
     char *go;
 
     my_putstr("$>");
-    getline(&summ, &s, stdin);
+    if (getline(&summ, &s, stdin) == -1)
+        exit(0);
     summ = clean_str(summ);
     char ** str = my_str_to_word_array(summ);
     go = detect_comm(copy, str[0]);
