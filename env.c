@@ -7,7 +7,8 @@
 
 #include "my.h"
 
-int counter_env(char ** envp) {
+int counter_env(char ** envp) 
+{
     int i = 0;
 
     while (envp[i] != NULL)
