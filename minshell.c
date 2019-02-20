@@ -46,8 +46,7 @@ char * detect_comm(char ** copy, char * summ)
             break;
         p++;
     }
-    p++;
-    if (path[p] != NULL) {
+    if (path[p + 1] != NULL) {
         test = way(summ, path[p]);
         return (test);
     }
