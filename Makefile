@@ -10,7 +10,8 @@ SRC     =   minshell.c \
 			parthstr.c \
 			principal_fct.c \
 			env.c \
-			other.c
+			other.c \
+			libe.c
 
 OBJ	=	$(SRC:.c=.o)
 

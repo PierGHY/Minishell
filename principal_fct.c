@@ -71,7 +71,7 @@ void fct_fork(char *go, char ** str, char **envp, int status)
     id = fork();
     if (id == 0 ) {
         if (execve(str[0], str, envp) == -1) {
-            my_putstr(str[0]);
+            my_pute(str[0]);
             write(2, ": Command not found.\n", 22);
         }
         exit(0);
@@ -79,8 +79,8 @@ void fct_fork(char *go, char ** str, char **envp, int status)
     else {
         wait(&status);
     }
-    if (status == 139)
-        write(2, "Segmentation fault (core dumped)\n", 34);
+    if (status == 139 || status == 11)
+        write(2, "Segmentation fault\n", 34);
 }
 
 int exit_t(char **str, char *summ)
