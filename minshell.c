@@ -42,11 +42,13 @@ char * detect_comm(char ** copy, char * summ)
         i++;
     path = pars_path(copy[i]);
     while (path[p] != NULL) {
-        if (access(way(summ, path[p]), X_OK) == 0)
+        if (access(way(summ, path[p]), X_OK) == 0) {
+            p++;
             break;
+        }
         p++;
     }
-    if (path[p + 1] != NULL) {
+    if (path[p] != NULL) {
         test = way(summ, path[p]);
         return (test);
     }

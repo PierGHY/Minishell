@@ -79,6 +79,8 @@ void fct_fork(char *go, char ** str, char **envp, int status)
     else {
         wait(&status);
     }
+    if (status == 139)
+        write(2, "Segmentation fault (core dumped)\n", 34);
 }
 
 int exit_t(char **str, char *summ)
