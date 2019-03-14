@@ -72,7 +72,7 @@ void fct_fork(char *go, char ** str, char **envp, int status)
     if (id == 0 ) {
         if (execve(str[0], str, envp) == -1) {
             my_pute(str[0]);
-            write(2, ":Command not found.\n", 22);
+            write(2, ":Command not found.", 20);
             exit (1);
         }
         exit(0);
@@ -81,7 +81,7 @@ void fct_fork(char *go, char ** str, char **envp, int status)
         wait(&status);
     }
     if (status == 139 || status == 11) {
-        write(2, "Segmentation fault\n", 34);
+        write(2, "Segmentation fault", 32);
         return (139);
     }
 }
