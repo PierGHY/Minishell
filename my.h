@@ -24,7 +24,7 @@ char ** my_str_to_word_array(char * summ);
 int exit_t(char ** str, char *summ);
 int my_str_compare(char * str, char * other);
 void env(char **copy);
-void fct_fork(char *go, char ** str, char ** envp, int status);
+int fct_fork(char *go, char ** str, char ** envp, int status);
 int my_strlen(char const * str);
 void my_putchar(char c);
 void to_cd(char ** str, char ** copy);

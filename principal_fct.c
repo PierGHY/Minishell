@@ -15,8 +15,9 @@ int minishell(int ac, char ** av, char ** const envp)
     size_t s;
     char *summ = NULL;
     char *go;
-
-    my_putstr("$>");
+    
+    if (isatty(0))
+        my_putstr("$>");
     if (getline(&summ, &s, stdin) == -1)
         exit(0);
     summ = clean_str(summ);
@@ -63,7 +64,7 @@ void to_cd(char ** str, char ** copy)
     pwd[1] = getcwd(path, t);
 }
 
-void fct_fork(char *go, char ** str, char **envp, int status)
+int fct_fork(char *go, char ** str, char **envp, int status)
 {
     int id;
     if (str[0][0] != '/' || str[0][0] != '.')
