@@ -73,7 +73,7 @@ int fct_fork(char *go, char ** str, char **envp, int status)
     if (id == 0 ) {
         if (execve(str[0], str, envp) == -1) {
             my_pute(str[0]);
-            write(2, ": Command not found.\n", 21);
+            write(2, ": Command not found.\n", 22);
             exit (1);
         }
         exit(0);
