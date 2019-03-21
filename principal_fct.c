@@ -15,7 +15,7 @@ int minishell(int ac, char ** av, char ** const envp)
     size_t s;
     char *summ = NULL;
     char *go;
-    
+
     if (isatty(0))
         my_putstr("$>");
     if (getline(&summ, &s, stdin) == -1)
@@ -25,8 +25,7 @@ int minishell(int ac, char ** av, char ** const envp)
     go = detect_comm(copy, str[0]);
     if (exit_t(str, summ) == 0)
         return (0);
-    else if (ife(str, summ, copy, envp) != 0)
-        fct_fork(go, str, envp, status);
+    fct_fork(go, str, envp, status);
     free(str);
     free(summ);
     minishell(ac, av, envp);
@@ -67,6 +66,7 @@ void to_cd(char ** str, char ** copy)
 int fct_fork(char *go, char ** str, char **envp, int status)
 {
     int id;
+
     if (str[0][0] != '/' || str[0][0] != '.')
         str[0] = go;
     id = fork();

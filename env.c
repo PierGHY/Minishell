@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-int counter_env(char ** envp) 
+int counter_env(char ** envp)
 {
     int i = 0;
 
@@ -61,7 +61,7 @@ int my_strlenzp(char *str, int k)
     int i = k;
     int j = 0;
 
-    while (str[i] != '=' && str[i] != ':' && str[i] != '\0'){
+    while (str[i] != '=' && str[i] != ':' && str[i] != '\0') {
         i = i + 1;
         j++;
     }
